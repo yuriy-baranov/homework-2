@@ -1,0 +1,304 @@
+html, body {
+    min-height: 100%;
+    user-select: none;
+}
+
+body {
+    background-color: #ACC0C1;
+}
+
+.container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 450px) {
+    .container {
+        box-shadow: 1px 1px 20px #666;
+    }
+}
+
+.level {
+    position: relative;
+    min-width: 320px;
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.level_0 {
+    background-image: url(../img/level_0_bg.jpg);
+    height: 180px;
+    position: relative;
+}
+
+.level_0:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../img/logo.png) no-repeat center 25px;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.level_1 {
+    background-image: url(../img/level_1_bg.png);
+    height: 235px;
+}
+
+.level_2 {
+    background-image: url(../img/level_2_bg.png);
+    height: 235px;
+}
+
+.level_3 {
+    background-image: url(../img/level_3_bg.png);
+    height: 235px;
+}
+
+.level_4 {
+    background-image: url(../img/level_4_bg.png);
+    height: 75px;
+}
+
+.door {
+    position: absolute;
+    bottom: 0;
+    background: url(../img/door.png) no-repeat top left;
+    width: 64px;
+    height: 100px;
+
+    cursor: pointer;
+}
+
+.door_locked {
+    background: url(../img/door_locked.png) no-repeat top left;
+}
+
+.door_disabled {
+    opacity: .7;
+}
+
+.door_level_0 {
+    right: 2%;
+}
+
+.door_level_1 {
+    left: 2%;
+}
+
+.door_level_2 {
+    right: 2%;
+}
+
+.box {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    background: url('../img/box.png') no-repeat top left;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background-color: rgba(0,0,0,.3);
+    transition: opacity .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_hidden {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.popup__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    background: #000 url(../img/door_level_0.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup__content_level_1 {
+    background: #fafafa;    
+}
+
+.popup__content_level_2 {
+    /* Можно поставить какую-нибудь свою картинку двери на бек */    
+}
+
+.popup__content_level_3 {
+    background: #232323;
+}
+
+.popup__content_level_1 .popup__close {
+    color: black;
+}
+
+.door-riddle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.door-riddle__button {
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    background-color: #583319;
+    border: 1px solid #F3E9E0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+    transition: background-color .3s;
+}
+
+.door-riddle__button_pressed {
+    background-color: #F3E5D9;
+}
+
+.play-field {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background: RGB(180, 180, 180);
+    border-radius: 12px;
+}
+
+.play-field__box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.play-field__exit {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('./../img/exit.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.play-field__exit_top {
+    top: 0px;
+    right: 0px;
+}
+
+.play-field__exit_bottom {
+    bottom: 0px;
+    left: 0px;
+}
+
+.play-field__box_top {
+    top: 0px;
+    left: 0px;
+    background-image: url('./../img/level_1_box.png');
+    background-size: 100%;
+}
+
+.play-field__box_bottom {
+    bottom: 0px;
+    right: 0px;
+    background-image: url('./../img/level_1_box.png');
+    background-size: 100%;
+}
+
+.play-field__score {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 80px;
+    text-align: center;
+    font-family: Arial;
+    color: white;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.door-riddle__safe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('./../img/lock-border.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    -webkit-touch-callout:	none;
+}
+
+.safe-center {
+    width: 81%;
+    transform: rotate(0rad);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.door-riddle__animal {
+    display: block;
+    position: fixed;
+    top: calc(80vh - 100px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    background-image: url('./../img/parrot.png');
+    background-size: 100% 100%;
+    transition: transform 1s ease-in-out;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+@keyframes bundle {
+    0% {transform: translate(-20px);}
+    50% {transform: translate(20px);}
+    100% {transform: translate(-20px);}
+}
+
+.popup_level_2__cloud {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+    animation: bundle 5s infinite ease-in-out;
+}
+
+.popup_level_2__fire {
+    position: absolute;
+    left: 15%; 
+    bottom: 0px;
+    width: 70%;
+}
