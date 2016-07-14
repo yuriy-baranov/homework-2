@@ -18,6 +18,7 @@
 ##Дополнительные файлы
 
 [js/geometry.js](https://github.com/yuriy-baranov/homework-2/tree/master/js/geometry.js) - небольшой модуль для определения угла между векторами
+
 [js/safeLogics.js](https://github.com/yuriy-baranov/homework-2/tree/master/js/safeLogics.js) - модуль, поддерживающий механизм сейфа (проверка введенного кода)
 
 
